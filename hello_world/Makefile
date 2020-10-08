@@ -12,8 +12,10 @@ all:
 clean:
 	rm -rf c5_pin_model_dump.txt
 	rm -rf db/
+	rm -rf hello_world_assignment_defaults.qdf
 	rm -rf hello_world.asm.rpt
 	rm -rf hello_world.fit.rpt
+	rm -rf hello_world.fit.smsg
 	rm -rf hello_world.fit.summary
 	rm -rf hello_world.flow.rpt
 	rm -rf hello_world.jdi
