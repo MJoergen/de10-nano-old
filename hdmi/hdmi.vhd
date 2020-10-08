@@ -5,19 +5,20 @@ use ieee.numeric_std.all;
 entity hdmi is
    port (
       fpga_clk1_50 : in  std_logic;
+      key          : in  std_logic_vector(1 downto 0);
       sw           : in  std_logic_vector(3 downto 0);
       led          : out std_logic_vector(7 downto 0);
-      hdmi_i2c_scl : out std_logic;
-      hdmi_i2c_sda : in  std_logic;
-      hdmi_i2s     : out std_logic;
-      hdmi_lrclk   : out std_logic;
-      hdmi_mclk    : out std_logic;
-      hdmi_sclk    : out std_logic;
+--      hdmi_i2c_scl : out std_logic;
+--      hdmi_i2c_sda : in  std_logic;
+--      hdmi_i2s     : out std_logic;
+--      hdmi_lrclk   : out std_logic;
+--      hdmi_mclk    : out std_logic;
+--      hdmi_sclk    : out std_logic;
       hdmi_tx_clk  : out std_logic;
       hdmi_tx_de   : out std_logic;
       hdmi_tx_d    : out std_logic_vector(23 downto 0);
       hdmi_tx_hs   : out std_logic;
-      hdmi_tx_int  : in  std_logic;
+--      hdmi_tx_int  : in  std_logic;
       hdmi_tx_vs   : out std_logic
    );
 end entity hdmi;
@@ -43,6 +44,8 @@ architecture synthesis of hdmi is
    constant VS_TIME         : integer := 2;
 
    signal hdmi_clk          : std_logic;
+   signal reset             : std_logic;
+   signal locked            : std_logic;
 
    signal pixel_x           : std_logic_vector(9 downto 0);
    signal pixel_y           : std_logic_vector(9 downto 0);
@@ -58,14 +61,17 @@ architecture synthesis of hdmi is
 
 begin
 
+   reset <= not key(0);
+
    i_pll_25 : pll_25
       port map (
          refclk   => fpga_clk1_50,
-         rst      => '0',
+         rst      => reset,
          outclk_0 => hdmi_clk,
-         locked   => open
+         locked   => locked
       );
 
+   hdmi_tx_clk <= hdmi_clk;
 
    -------------------------------------
    -- Generate horizontal pixel counter
@@ -78,6 +84,10 @@ begin
             pixel_x <= (others => '0');
          else
             pixel_x <= std_logic_vector(unsigned(pixel_x) + 1);
+         end if;
+
+         if locked = '0' then
+            pixel_x <= (others => '0');
          end if;
       end if;
    end process p_pixel_x;
@@ -96,6 +106,10 @@ begin
             else
                pixel_y <= std_logic_vector(unsigned(pixel_y) + 1);
             end if;
+         end if;
+
+         if locked = '0' then
+            pixel_y <= (others => '0');
          end if;
       end if;
    end process p_pixel_y;
@@ -138,10 +152,15 @@ begin
             hdmi_tx_d  <= pixel_x & pixel_y & "0000";
             hdmi_tx_de <= '1';
          end if;
+
+         if locked = '0' then
+            hdmi_tx_hs <= '0';
+            hdmi_tx_vs <= '0';
+            hdmi_tx_d  <= (others => '0');
+            hdmi_tx_de <= '0';
+         end if;
       end if;
    end process p_hdmi_tx;
-
-
 
    led(7 downto 4) <= (others => '0');
    led(3 downto 0) <= sw;

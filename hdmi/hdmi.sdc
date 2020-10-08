@@ -10,11 +10,6 @@ create_clock -period "50.0 MHz" [get_ports fpga_clk1_50]
 #create_clock -period "50.0 MHz" [get_ports fpga_clk2_50]
 #create_clock -period "50.0 MHz" [get_ports fpga_clk3_50]
 
-# for enhancing USB BlasterII to be reliable, 25MHz
-create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck}
-set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi]
-set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms]
-set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo]
 
 #**************************************************************
 # Create Generated Clock
