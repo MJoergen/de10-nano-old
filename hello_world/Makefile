@@ -1,19 +1,14 @@
 PROJECT = hello_world
-FAMILY  = "Cyclone V"
-PART    = 5CSEBA6U23I7
-SOURCE  = hello_world.vhd
 
 all:
-	quartus_map $(PROJECT) --source=$(SOURCE) --family=$(FAMILY)
-	quartus_fit $(PROJECT) --part=$(PART)
-	quartus_asm $(PROJECT)
-	quartus_sta $(PROJECT)
+	quartus_sh --flow compile $(PROJECT)
 
 clean:
 	rm -rf c5_pin_model_dump.txt
 	rm -rf db/
 	rm -rf hello_world_assignment_defaults.qdf
 	rm -rf hello_world.asm.rpt
+	rm -rf hello_world.done
 	rm -rf hello_world.fit.rpt
 	rm -rf hello_world.fit.smsg
 	rm -rf hello_world.fit.summary
