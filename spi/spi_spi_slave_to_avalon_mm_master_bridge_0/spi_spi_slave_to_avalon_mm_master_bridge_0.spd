@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/SPISlaveToAvalonMasterBridge.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_packets_to_master_inst_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_st_bytes_to_packets_inst_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_st_packets_to_bytes_inst_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/channel_adapter_btop_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/channel_adapter_ptob_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/spislave_inst_for_spichain.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_packets_to_master.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_st_bytes_to_packets.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/altera_avalon_st_packets_to_bytes.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="spi_slave_to_avalon_mm_master_bridge_1911/sim/spiphyslave.v"
+   type="VERILOG"
+   library="spi_slave_to_avalon_mm_master_bridge_1911" />
+ <file
+   path="sim/spi_spi_slave_to_avalon_mm_master_bridge_0.v"
+   type="VERILOG"
+   library="spi_spi_slave_to_avalon_mm_master_bridge_0"
+   hasInlineConfiguration="true" />
+ <topLevel
+   name="spi_spi_slave_to_avalon_mm_master_bridge_0.spi_spi_slave_to_avalon_mm_master_bridge_0" />
+ <deviceFamily name="agilex" />
+</simPackage>

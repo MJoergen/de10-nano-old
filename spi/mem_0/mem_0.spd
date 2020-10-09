@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="ram_1port_2010/sim/mem_0_ram_1port_2010_jwk6vpy.v"
+   type="VERILOG"
+   library="ram_1port_2010" />
+ <file
+   path="sim/mem_0.v"
+   type="VERILOG"
+   library="mem_0"
+   hasInlineConfiguration="true" />
+ <topLevel name="mem_0.mem_0" />
+ <deviceFamily name="agilex" />
+</simPackage>

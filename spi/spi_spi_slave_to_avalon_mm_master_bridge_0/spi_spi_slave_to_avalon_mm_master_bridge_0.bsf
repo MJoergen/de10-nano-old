@@ -1,0 +1,162 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 992 232)
+	(text "spi_spi_slave_to_avalon_mm_master_bridge_0" (rect 356 -1 551 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 216 20 228)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" (font_size 8)))
+		(text "clk" (rect 4 61 22 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 272 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "reset_n" (rect 0 0 30 12)(font "Arial" (font_size 8)))
+		(text "reset_n" (rect 4 101 46 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 272 112)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "mosi_to_the_spislave_inst_for_spichain" (rect 0 0 160 12)(font "Arial" (font_size 8)))
+		(text "mosi_to_the_spislave_inst_for_spichain" (rect 4 141 232 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 272 152)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(input)
+		(text "nss_to_the_spislave_inst_for_spichain" (rect 0 0 155 12)(font "Arial" (font_size 8)))
+		(text "nss_to_the_spislave_inst_for_spichain" (rect 4 157 226 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 272 168)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(input)
+		(text "sclk_to_the_spislave_inst_for_spichain" (rect 0 0 156 12)(font "Arial" (font_size 8)))
+		(text "sclk_to_the_spislave_inst_for_spichain" (rect 4 173 232 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 272 184)(line_width 1))
+	)
+	(port
+		(pt 992 120)
+		(input)
+		(text "readdata_to_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 0 0 304 12)(font "Arial" (font_size 8)))
+		(text "readdata_to_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 614 109 1046 120)(font "Arial" (font_size 8)))
+		(line (pt 992 120)(pt 576 120)(line_width 3))
+	)
+	(port
+		(pt 992 136)
+		(input)
+		(text "readdatavalid_to_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 0 0 298 12)(font "Arial" (font_size 8)))
+		(text "readdatavalid_to_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 620 125 1040 136)(font "Arial" (font_size 8)))
+		(line (pt 992 136)(pt 576 136)(line_width 1))
+	)
+	(port
+		(pt 992 152)
+		(input)
+		(text "waitrequest_to_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 0 0 290 12)(font "Arial" (font_size 8)))
+		(text "waitrequest_to_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 627 141 1035 152)(font "Arial" (font_size 8)))
+		(line (pt 992 152)(pt 576 152)(line_width 1))
+	)
+	(port
+		(pt 992 72)
+		(output)
+		(text "address_from_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 0 0 315 12)(font "Arial" (font_size 8)))
+		(text "address_from_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 603 61 1041 72)(font "Arial" (font_size 8)))
+		(line (pt 992 72)(pt 576 72)(line_width 3))
+	)
+	(port
+		(pt 992 88)
+		(output)
+		(text "byteenable_from_the_altera_avalon_packets_to_master_inst_for_spichain[3..0]" (rect 0 0 322 12)(font "Arial" (font_size 8)))
+		(text "byteenable_from_the_altera_avalon_packets_to_master_inst_for_spichain[3..0]" (rect 594 77 1044 88)(font "Arial" (font_size 8)))
+		(line (pt 992 88)(pt 576 88)(line_width 3))
+	)
+	(port
+		(pt 992 104)
+		(output)
+		(text "read_from_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 0 0 277 12)(font "Arial" (font_size 8)))
+		(text "read_from_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 649 93 1027 104)(font "Arial" (font_size 8)))
+		(line (pt 992 104)(pt 576 104)(line_width 1))
+	)
+	(port
+		(pt 992 168)
+		(output)
+		(text "write_from_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 0 0 277 12)(font "Arial" (font_size 8)))
+		(text "write_from_the_altera_avalon_packets_to_master_inst_for_spichain" (rect 646 157 1030 168)(font "Arial" (font_size 8)))
+		(line (pt 992 168)(pt 576 168)(line_width 1))
+	)
+	(port
+		(pt 992 184)
+		(output)
+		(text "writedata_from_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 0 0 317 12)(font "Arial" (font_size 8)))
+		(text "writedata_from_the_altera_avalon_packets_to_master_inst_for_spichain[31..0]" (rect 597 173 1047 184)(font "Arial" (font_size 8)))
+		(line (pt 992 184)(pt 576 184)(line_width 3))
+	)
+	(port
+		(pt 0 200)
+		(bidir)
+		(text "miso_to_and_from_the_spislave_inst_for_spichain" (rect 0 0 206 12)(font "Arial" (font_size 8)))
+		(text "miso_to_and_from_the_spislave_inst_for_spichain" (rect 4 189 286 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 272 200)(line_width 1))
+	)
+	(drawing
+		(text "clk" (rect 257 43 532 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 277 67 572 144)(font "Arial" (color 0 0 0)))
+		(text "reset_n" (rect 228 83 498 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 277 107 596 224)(font "Arial" (color 0 0 0)))
+		(text "export_0" (rect 222 123 492 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "mosi_to_the_spislave_inst_for_spichain" (rect 277 147 782 304)(font "Arial" (color 0 0 0)))
+		(text "nss_to_the_spislave_inst_for_spichain" (rect 277 163 776 336)(font "Arial" (color 0 0 0)))
+		(text "sclk_to_the_spislave_inst_for_spichain" (rect 277 179 782 368)(font "Arial" (color 0 0 0)))
+		(text "miso_to_and_from_the_spislave_inst_for_spichain" (rect 277 195 836 400)(font "Arial" (color 0 0 0)))
+		(text "avalon_master" (rect 577 43 1232 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "address" (rect 539 67 1120 144)(font "Arial" (color 0 0 0)))
+		(text "byteenable" (rect 527 83 1114 176)(font "Arial" (color 0 0 0)))
+		(text "read" (rect 554 99 1132 208)(font "Arial" (color 0 0 0)))
+		(text "readdata" (rect 536 115 1120 240)(font "Arial" (color 0 0 0)))
+		(text "readdatavalid" (rect 516 131 1110 272)(font "Arial" (color 0 0 0)))
+		(text "waitrequest" (rect 525 147 1116 304)(font "Arial" (color 0 0 0)))
+		(text "write" (rect 553 163 1136 336)(font "Arial" (color 0 0 0)))
+		(text "writedata" (rect 535 179 1124 368)(font "Arial" (color 0 0 0)))
+		(text " spi_spi_slave_to_avalon_mm_master_bridge_0 " (rect 781 216 1826 442)(font "Arial" ))
+		(line (pt 272 32)(pt 576 32)(line_width 1))
+		(line (pt 576 32)(pt 576 216)(line_width 1))
+		(line (pt 272 216)(pt 576 216)(line_width 1))
+		(line (pt 272 32)(pt 272 216)(line_width 1))
+		(line (pt 273 52)(pt 273 76)(line_width 1))
+		(line (pt 274 52)(pt 274 76)(line_width 1))
+		(line (pt 273 92)(pt 273 116)(line_width 1))
+		(line (pt 274 92)(pt 274 116)(line_width 1))
+		(line (pt 273 132)(pt 273 204)(line_width 1))
+		(line (pt 274 132)(pt 274 204)(line_width 1))
+		(line (pt 575 52)(pt 575 188)(line_width 1))
+		(line (pt 574 52)(pt 574 188)(line_width 1))
+		(line (pt 0 0)(pt 992 0)(line_width 1))
+		(line (pt 992 0)(pt 992 232)(line_width 1))
+		(line (pt 0 232)(pt 992 232)(line_width 1))
+		(line (pt 0 0)(pt 0 232)(line_width 1))
+	)
+)

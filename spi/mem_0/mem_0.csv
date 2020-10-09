@@ -1,0 +1,18 @@
+# system info mem_0 on 2020.10.09.12:54:00
+system_info:
+name,value
+DEVICE,AGFB014R24A3E3VR0
+DEVICE_FAMILY,Agilex
+GENERATION_ID,0
+#
+#
+# Files generated for mem_0 on 2020.10.09.12:54:00
+files:
+filepath,kind,attributes,module,is_top
+sim/mem_0.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,mem_0,true
+ram_1port_2010/sim/mem_0_ram_1port_2010_jwk6vpy.v,VERILOG,,mem_0_ram_1port_2010_jwk6vpy,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+mem_0.ram_1port_0,mem_0_ram_1port_2010_jwk6vpy

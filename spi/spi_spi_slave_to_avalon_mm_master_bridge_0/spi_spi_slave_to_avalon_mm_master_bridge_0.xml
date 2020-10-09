@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2020.10.09.11:47:39"
+ outputDirectory="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Agilex"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="AGFB014R24A3E3VR0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="3"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVALON_MASTER_ADDRESS_MAP"
+     type="AddressMap"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVALON_MASTER_ADDRESS_WIDTH"
+     type="AddressWidthType"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset_n" kind="reset" start="0">
+   <property name="associatedClock" value="clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="reset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="export_0" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <property name="prSafe" value="false" />
+   <port
+       name="mosi_to_the_spislave_inst_for_spichain"
+       direction="input"
+       role="mosi_to_the_spislave_inst_for_spichain"
+       width="1" />
+   <port
+       name="nss_to_the_spislave_inst_for_spichain"
+       direction="input"
+       role="nss_to_the_spislave_inst_for_spichain"
+       width="1" />
+   <port
+       name="sclk_to_the_spislave_inst_for_spichain"
+       direction="input"
+       role="sclk_to_the_spislave_inst_for_spichain"
+       width="1" />
+   <port
+       name="miso_to_and_from_the_spislave_inst_for_spichain"
+       direction="bidir"
+       role="miso_to_and_from_the_spislave_inst_for_spichain"
+       width="1" />
+  </interface>
+  <interface name="avalon_master" kind="avalon" start="1">
+   <property name="adaptsTo" value="" />
+   <property name="addressGroup" value="0" />
+   <property name="addressUnits" value="SYMBOLS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="reset_n" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="burstOnBurstBoundariesOnly" value="false" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="dBSBigEndian" value="false" />
+   <property name="doStreamReads" value="false" />
+   <property name="doStreamWrites" value="false" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isAsynchronous" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isReadable" value="false" />
+   <property name="isWriteable" value="false" />
+   <property name="linewrapBursts" value="false" />
+   <property name="maxAddressWidth" value="32" />
+   <property name="maximumPendingReadTransactions" value="1" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumReadLatency" value="1" />
+   <property name="minimumResponseLatency" value="1" />
+   <property name="prSafe" value="false" />
+   <property name="readLatency" value="0" />
+   <property name="readWaitTime" value="1" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="waitrequestAllowance" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port
+       name="address_from_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="output"
+       role="address"
+       width="32" />
+   <port
+       name="byteenable_from_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="output"
+       role="byteenable"
+       width="4" />
+   <port
+       name="read_from_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="output"
+       role="read"
+       width="1" />
+   <port
+       name="readdata_to_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="input"
+       role="readdata"
+       width="32" />
+   <port
+       name="readdatavalid_to_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="input"
+       role="readdatavalid"
+       width="1" />
+   <port
+       name="waitrequest_to_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="input"
+       role="waitrequest"
+       width="1" />
+   <port
+       name="write_from_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="output"
+       role="write"
+       width="1" />
+   <port
+       name="writedata_from_the_altera_avalon_packets_to_master_inst_for_spichain"
+       direction="output"
+       role="writedata"
+       width="32" />
+  </interface>
+ </perimeter>
+ <entity
+   kind="spi_spi_slave_to_avalon_mm_master_bridge_0"
+   version="1.0"
+   name="spi_spi_slave_to_avalon_mm_master_bridge_0">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="AGFB014R24A3E3VR0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex" />
+  <parameter name="AUTO_AVALON_MASTER_ADDRESS_WIDTH" value="-1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_AVALON_MASTER_ADDRESS_MAP" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="3" />
+  <generatedFiles>
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/synth/spi_spi_slave_to_avalon_mm_master_bridge_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/synth/spi_spi_slave_to_avalon_mm_master_bridge_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/SPISlaveToAvalonMasterBridge_hw.tcl" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spi_phy_slave/spiphyslave.sdc" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/SPISlaveToAvalonMasterBridge.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_packets_to_master_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_st_bytes_to_packets_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_st_packets_to_bytes_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/channel_adapter_btop_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/channel_adapter_ptob_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/spislave_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_packets_to_master/altera_avalon_packets_to_master.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_st_bytes_to_packets/altera_avalon_st_bytes_to_packets.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_st_packets_to_bytes/altera_avalon_st_packets_to_bytes.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spi_phy_slave/spiphyslave.v" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="spi_spi_slave_to_avalon_mm_master_bridge_0">"Generating: spi_spi_slave_to_avalon_mm_master_bridge_0"</message>
+   <message level="Info" culprit="spi_spi_slave_to_avalon_mm_master_bridge_0">"Generating: SPISlaveToAvalonMasterBridge"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="spi_slave_to_avalon_mm_master_bridge"
+   version="19.1.1"
+   name="SPISlaveToAvalonMasterBridge">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex" />
+  <generatedFiles>
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spiphyslave.sdc" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/SPISlaveToAvalonMasterBridge.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_packets_to_master_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_bytes_to_packets_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_packets_to_bytes_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/channel_adapter_btop_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/channel_adapter_ptob_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spislave_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_packets_to_master.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_bytes_to_packets.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_packets_to_bytes.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spiphyslave.v" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spiphyslave.sdc" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/SPISlaveToAvalonMasterBridge.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_packets_to_master_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_bytes_to_packets_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_packets_to_bytes_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/channel_adapter_btop_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/channel_adapter_ptob_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spislave_inst_for_spichain.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_packets_to_master.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_bytes_to_packets.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/altera_avalon_st_packets_to_bytes.v" />
+   <file
+       path="/home/mfj/Quartus/spi/ip/spi/spi_spi_slave_to_avalon_mm_master_bridge_0/spi_slave_to_avalon_mm_master_bridge_1911/synth/spiphyslave.v" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/SPISlaveToAvalonMasterBridge_hw.tcl" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spi_phy_slave/spiphyslave.sdc" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/SPISlaveToAvalonMasterBridge.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_packets_to_master_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_st_bytes_to_packets_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/altera_avalon_st_packets_to_bytes_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/channel_adapter_btop_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/channel_adapter_ptob_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spislave_to_avalonmm_bridge/spislave_inst_for_spichain.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_packets_to_master/altera_avalon_packets_to_master.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_st_bytes_to_packets/altera_avalon_st_bytes_to_packets.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_st_packets_to_bytes/altera_avalon_st_packets_to_bytes.v" />
+   <file
+       path="/net/fs01/firmware-tools/altera/20.2.0.44/ip/altera/sopc_builder_ip/altera_avalon_spi_phy_slave/spiphyslave.v" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator
+     instantiator="spi_spi_slave_to_avalon_mm_master_bridge_0"
+     as="spi_slave_to_avalon_mm_master_bridge_0" />
+  <messages>
+   <message level="Info" culprit="spi_spi_slave_to_avalon_mm_master_bridge_0">"Generating: SPISlaveToAvalonMasterBridge"</message>
+  </messages>
+ </entity>
+</deploy>
