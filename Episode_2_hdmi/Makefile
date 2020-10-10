@@ -4,7 +4,7 @@ all:
 	quartus_sh --flow compile $(PROJECT)
 
 clean:
-	rm -rf output_files
+	rm -rf build/
 	rm -rf db/
 	rm -rf incremental_db/
 	rm -rf $(PROJECT).qpf

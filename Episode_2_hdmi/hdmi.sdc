@@ -6,9 +6,7 @@
 #**************************************************************
 # Create Clock
 #**************************************************************
-create_clock -period "50.0 MHz" [get_ports fpga_clk1_50]
-#create_clock -period "50.0 MHz" [get_ports fpga_clk2_50]
-#create_clock -period "50.0 MHz" [get_ports fpga_clk3_50]
+create_clock -period "50.0 MHz" [get_ports fpga_clk1_50_i]
 
 
 #**************************************************************

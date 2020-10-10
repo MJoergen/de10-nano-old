@@ -4,22 +4,13 @@ use ieee.numeric_std.all;
 
 entity hdmi is
    port (
-      fpga_clk1_50 : in  std_logic;
-      key          : in  std_logic_vector(1 downto 0);
-      sw           : in  std_logic_vector(3 downto 0);
-      led          : out std_logic_vector(7 downto 0);
---      hdmi_i2c_scl : out std_logic;
---      hdmi_i2c_sda : in  std_logic;
---      hdmi_i2s     : out std_logic;
---      hdmi_lrclk   : out std_logic;
---      hdmi_mclk    : out std_logic;
---      hdmi_sclk    : out std_logic;
-      hdmi_tx_clk  : out std_logic;
-      hdmi_tx_de   : out std_logic;
-      hdmi_tx_d    : out std_logic_vector(23 downto 0);
-      hdmi_tx_hs   : out std_logic;
---      hdmi_tx_int  : in  std_logic;
-      hdmi_tx_vs   : out std_logic
+      fpga_clk1_50_i : in  std_logic;
+      key0_i         : in  std_logic;
+      hdmi_tx_clk_o  : out std_logic;
+      hdmi_tx_de_o   : out std_logic;
+      hdmi_tx_d_o    : out std_logic_vector(23 downto 0);
+      hdmi_tx_hs_o   : out std_logic;
+      hdmi_tx_vs_o   : out std_logic
    );
 end entity hdmi;
 
@@ -61,17 +52,17 @@ architecture synthesis of hdmi is
 
 begin
 
-   reset <= not key(0);
+   reset <= not key0_i;
 
    i_pll_25 : pll_25
       port map (
-         refclk   => fpga_clk1_50,
+         refclk   => fpga_clk1_50_i,
          rst      => reset,
          outclk_0 => hdmi_clk,
          locked   => locked
       );
 
-   hdmi_tx_clk <= hdmi_clk;
+   hdmi_tx_clk_o <= hdmi_clk;
 
    -------------------------------------
    -- Generate horizontal pixel counter
@@ -126,44 +117,41 @@ begin
          if unsigned(pixel_x) >= HS_START and
             unsigned(pixel_x) < HS_START+HS_TIME then
 
-            hdmi_tx_hs <= '0';
+            hdmi_tx_hs_o <= '0';
          else
-            hdmi_tx_hs <= '1';
+            hdmi_tx_hs_o <= '1';
          end if;
 
          -- Generate vertical sync signal
          if unsigned(pixel_y) >= VS_START and
             unsigned(pixel_y) < VS_START+VS_TIME then
 
-            hdmi_tx_vs <= '0';
+            hdmi_tx_vs_o <= '0';
          else
-            hdmi_tx_vs <= '1';
+            hdmi_tx_vs_o <= '1';
          end if;
 
          -- Default is black
-         hdmi_tx_d  <= (others => '0');
-         hdmi_tx_de <= '0';
+         hdmi_tx_d_o  <= (others => '0');
+         hdmi_tx_de_o <= '0';
 
          -- Only show color when inside visible screen area
          if unsigned(pixel_x) >= 0 and
             unsigned(pixel_x) < H_PIXELS and
             unsigned(pixel_y) < V_PIXELS then
 
-            hdmi_tx_d  <= pixel_x & pixel_y & "0000";
-            hdmi_tx_de <= '1';
+            hdmi_tx_d_o  <= pixel_x & pixel_y & pixel_y(3 downto 0);
+            hdmi_tx_de_o <= '1';
          end if;
 
          if locked = '0' then
-            hdmi_tx_hs <= '0';
-            hdmi_tx_vs <= '0';
-            hdmi_tx_d  <= (others => '0');
-            hdmi_tx_de <= '0';
+            hdmi_tx_hs_o <= '0';
+            hdmi_tx_vs_o <= '0';
+            hdmi_tx_d_o  <= (others => '0');
+            hdmi_tx_de_o <= '0';
          end if;
       end if;
    end process p_hdmi_tx;
-
-   led(7 downto 4) <= (others => '0');
-   led(3 downto 0) <= sw;
 
 end architecture synthesis;
 
