@@ -22,6 +22,7 @@ licenses.
 Next you must select "Individual Files", see below:
 
 ![Individual Files](individual_files.png "Individual Files")
+
 ![Cyclone V](cyclonev.png "Cyclone V")
 
 and then download the three files mentioned above into a temporary directory.
