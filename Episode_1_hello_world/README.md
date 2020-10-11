@@ -34,15 +34,15 @@ You should now have the following three files:
 
 ## Installing the tools
 
-Now you must make the Quartus Lite setup program has execute permissions, e.g.
-by executing in the temporary download folder the following commadn:
+Now you must make sure the Quartus Lite setup program has execute permissions,
+e.g.  by executing in the temporary download folder the following command:
 
 ```
 chmod a+x *.run
 ```
 
 Now you're ready to install. Only the Quartus Lite setup program needs to be
-run. It will automatically recognize the other two files and install
+run; it will automatically recognize the other two files and install
 everything.
 
 ```
@@ -62,12 +62,12 @@ export PATH=$PATH:$QUARTUS_ROOTDIR/bin:$QUARTUS_ROOTDIR/linux64:$QUARTUS_ROOTDIR
 This first design is trivial, and its purpose is only to get the tools
 installed and working.  The DE10 Nano board has 4 slide switches and 8 LEDs. In
 this first design, the four slide switches are connected to the first four
-LEDs. This is seen in the design file [hello_world.vhd](hello_world.vhd).
+LEDs. This is seen in the design file [top.vhd](top.vhd).
 
 ## The Makefile
 The Quartus tool is controlled by a script file, and is invoked by the command
 `quartus_sh`. The command line argument `--flow compile` is an instruction to
-build the complete design and geenrate a bit-file that can be programmed onto
+build the complete design and generate a bit-file that can be programmed onto
 the FPGA.
 
 The Makefile is not really necessary, and you can just as well start the Quartus
@@ -78,19 +78,21 @@ quartus_sh --flow compile top
 ```
 
 ## The compile script
-The file [hello_world.qsf](hello_world.qsf) contains all the build instructions.
+The file [top.qsf](top.qsf) contains all the build instructions.
 
 * The `FAMILY` and `DEVICE` tags describe the particular FPGA on the DE10 Nano
   board. You should not change these, as long as you are making designs for
   this board.
 * The `TOP_LEVEL_ENTITY` tag is the name of the entity. This should match the
-  name defined in the file [hello_world.vhd](hello_world.vhd).
+  name defined in the file [top.vhd](top.vhd).
 * The `PROJECT_OUTPUT_DIRECTORY` tag is not strictly necessary, but it
   instructs Quartus to place all (well, most of) its output files into a
   subdirectory (which it will create automatically).
 * The `NUM_PARALLEL_PROCESSORS` tag is absolutely not necessary, but Quartus
   gives a warning if a value is not specified for this tag.
 * The `VHDL_FILE` is used once for each VHDL source file.
+* The `SDC_FILE` is not used in this project, but I've included it here since
+  otherwise Quartus gives a critical warning.
 
 The remaining lines instructs Quartus on which pins on the FPGA shall be
 connected to the ports of the top level entity.
