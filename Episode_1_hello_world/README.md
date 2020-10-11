@@ -2,7 +2,10 @@
 
 In this episode we get the tools installed and the board powered up.
 
-## Tools
+## Downloading the necessary files
+In this section you'll get to download the installation files for the tools
+necessary to program Intel FPGAs.
+
 You need to download three files:
 * Quartus Prime
 * ModelSim-Intel FPGA Edition
@@ -26,6 +29,8 @@ You should now have the following three files:
 * cyclonev-20.1.0.711.qdz
 * ModelSimSetup-20.1.0.711-linux.run
 * QuartusLiteSetup-20.1.0.711-linux.run
+
+## Installing the tools
 
 Now you must make the Quartus Lite setup program has execute permissions, e.g.
 by executing in the temporary download folder the following commadn:
