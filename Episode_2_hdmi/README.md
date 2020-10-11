@@ -98,7 +98,10 @@ The command `derive_clock_uncertainty` I'm not sure about, but I believe is
 necessary as soon as multiple clocks are present.
 
 ### `top.qsf`
-Here we've added the three new source files:
+First thing is we've disabled `MUX_RESTRUCTURE` (the default value is AUTO).
+Apparently this is necessary in order to close timing. I don't know why.
+
+After that we've added the three new source files:
 
 ```
 set_global_assignment -name VHDL_FILE hdmi/hdmi.vhd
@@ -106,6 +109,6 @@ set_global_assignment -name VHDL_FILE hdmi/hdmi_counters.vhd
 set_global_assignment -name VHDL_FILE hdmi/hdmi_output.vhd
 ```
 
-And then we've update the pin assignments. These are taken from the [DE10 Nano
+And then we've updated the pin assignments. These are taken from the [DE10 Nano
 board
 schematic](https://software.intel.com/content/dam/develop/external/us/en/documents/de10-nano-schematic-711128.pdf).
