@@ -4,10 +4,10 @@ In this episode we expand on the previous episode and make a simple design that
 generates a nice pattern on the HDMI video output.
 
 ## The design
-First of all, since the DE10 Nano board contains a ADV7513 chip that converts
-from VGA to HDMI. In other words, the FPGA itself needs only to provide a
-VGA-compatible output, and the extra chip on the board will then convert it to
-a HDMI output.
+First of all, the DE10 Nano board contains an ADV7513 chip that converts from
+VGA to HDMI. In other words, the FPGA itself needs only to provide a
+VGA-compatible output, and the extra chip on the board will then convert the
+VGA signals to a HDMI output.
 
 There exist plenty of tutorials on generating a VGA output, so I'll just
 briefly go over the design. I've chosen to move all the video output to a separate
@@ -16,7 +16,7 @@ the previous episode, as we won't be needing them anymore.
 
 ### `top.vhd`
 
-In the following I'll walk you through the top level file `top.vhd`.
+In the following, I'll walk you through the top level file [top.vhd](top.vhd).
 We start by examining the port declarations:
 
 ```
@@ -42,12 +42,12 @@ The first thing to consider is clock signals. The DE10 Nano board delivers a 50
 MHz clock signal to the FPGA logic `fpga_clk1_50_i`.
 
 The HDMI chip can work with several different resolutions, but in this design
-I'll be using a 640x480 @ 60 Hz resolution. This requires a clock of 25.2 Mhz.
-It turns out that the chip will work correctly even with a 25.0 Mhz, so we'll
+I'll be using a 640x480 @ 60 Hz resolution. This requires a clock of 25.2 MHz.
+It turns out that the video chip will work correctly even with a 25.0 MHz, so we'll
 go with that for now, since it is easier. In a later episode we'll change to
 the more accurate 25.2 Mhz clock frequency.
 
-The top level file generate the 25 MHz clock using a simple clock divider. Then
+The top level file generates the 25 MHz clock using a simple clock divider. Then
 the HDMI controller is instantiated, and the HDMI clock output is connected.
 
 ### `hdmi/hdmi_counters.vhd`
@@ -75,23 +75,33 @@ The signal `hdmi_tx_d_o` contains the 24-bit RGB color of the current pixel.
 The remaining signals, `hdmi_tx_de_o`, `hdmi_tx_hs_o`. and `hdmi_tx_vs_o`,
 provide synchronization information to the HDMI chip.
 
+The actual color is determined by this line:
+
+```
+hdmi_tx_d_o  <= pixel_x_i & pixel_y_i & pixel_y_i(3 downto 0);
+```
+
+There is nothing magical about this assignment. Really, you could provide any
+combination of bits based on the pixel counters. The one I chose here is
+completely arbitrary.
+
 ### `hdmi/hdmi.vhd`
 This small file just instantiates the two previous files and provides a nice
 clean interface to the top level module `top.vhd`.
 
 
-## Change to the scripts
+## Changes to the scripts
 First of all, we have to provide the clocking information to the Quartus tool,
 specifically to its Timing Analyzer.
 
-### `top.sdc'
+### `top.sdc`
 This file contains all the timing constraints and clock information.
 
-The command `create_clock` gives information about the incoming clock.
+The command `create_clock` gives information about the incoming 50 MHz clock.
 
 The command `create_generated_clock` is needed to instruct the Quartus tool
 about the manually generated clock. In particular, the tool is not able to
-infer the new frequency, so this has to be stated explicitly with the
+infer the generated frequency, so this has to be stated explicitly with the
 argument `-divide_by 2`.
 
 The command `derive_clock_uncertainty` I'm not sure about, but I believe is
@@ -112,3 +122,16 @@ set_global_assignment -name VHDL_FILE hdmi/hdmi_output.vhd
 And then we've updated the pin assignments. These are taken from the [DE10 Nano
 board
 schematic](https://software.intel.com/content/dam/develop/external/us/en/documents/de10-nano-schematic-711128.pdf).
+
+## Testing
+To start the build simply type the command:
+
+```
+make
+```
+
+Once the build is finished, you can program the FPGA with the generated bitstream.
+
+Then you should be able to connect the DE10 Nano board to a HDMI monitor and see
+a beautiful (?) pattern on the screen!
+
