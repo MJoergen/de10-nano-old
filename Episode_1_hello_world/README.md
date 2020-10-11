@@ -100,9 +100,6 @@ You will notice a few warnings remaining, like:
   subscription license. You can purchase a software subscription to gain full
   access to this feature`. I'm not sure what this warning is about, but it seems
   to be safe to ignore it.
-* `Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O
-  Assignment Warnings report for details`. I guess this warning is stating that
-  not all I/O pins on the FPGA are used. This should be safe to ignore.
 * `Warning (332068): No clocks defined in design`. This is very true, as this
   exceptionally simple design has no clocks. This warning will go away already
   in the next episode.
