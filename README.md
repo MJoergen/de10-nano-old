@@ -1,4 +1,4 @@
-# de10-nano
+# Getting started with the Terasic DE10 Nano board
 This is a tutorial on how to make designs for the Terasic DE10 Nano board.
 
 Other tutorials make heavy use of the Quartus GUI and the Platform Designer
