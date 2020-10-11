@@ -1,4 +1,4 @@
-PROJECT = hdmi
+PROJECT = top
 
 all:
 	quartus_sh --flow compile $(PROJECT)

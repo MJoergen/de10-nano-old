@@ -4,7 +4,7 @@
 
 set_global_assignment -name FAMILY                       "Cyclone V"
 set_global_assignment -name DEVICE                       5CSEBA6U23I7
-set_global_assignment -name TOP_LEVEL_ENTITY             "hdmi"
+set_global_assignment -name TOP_LEVEL_ENTITY             "top"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY     build
 set_global_assignment -name NUM_PARALLEL_PROCESSORS      ALL
 
@@ -13,9 +13,11 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS      ALL
 # Source files
 #============================================================
 
-set_global_assignment -name VHDL_FILE                    hdmi.vhd
-set_global_assignment -name QIP_FILE                     pll/pll_25.qip
-set_global_assignment -name SDC_FILE                     hdmi.sdc
+set_global_assignment -name VHDL_FILE                    top.vhd
+set_global_assignment -name VHDL_FILE                    hdmi/hdmi.vhd
+set_global_assignment -name VHDL_FILE                    hdmi/hdmi_counters.vhd
+set_global_assignment -name VHDL_FILE                    hdmi/hdmi_output.vhd
+set_global_assignment -name SDC_FILE                     top.sdc
 
 
 #============================================================
@@ -25,10 +27,6 @@ set_global_assignment -name SDC_FILE                     hdmi.sdc
 # CLOCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fpga_clk1_50_i
 set_location_assignment PIN_V11 -to fpga_clk1_50_i
-
-# KEY
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to key0_i
-set_location_assignment PIN_AH17 -to key0_i
 
 # HDMI
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_clk_o
