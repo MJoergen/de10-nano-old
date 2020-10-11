@@ -7,7 +7,6 @@ create_clock -period "50.0 MHz" [get_ports fpga_clk1_50_i]
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
-derive_pll_clocks
 create_generated_clock -divide_by 2 -source [get_ports fpga_clk1_50_i] -name hdmi_clk [get_registers hdmi_clk]
 
 

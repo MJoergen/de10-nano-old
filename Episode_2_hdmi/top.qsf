@@ -25,38 +25,9 @@ set_global_assignment -name SDC_FILE                     top.sdc
 #============================================================
 
 # CLOCK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fpga_clk1_50_i
-set_location_assignment PIN_V11 -to fpga_clk1_50_i
+set_location_assignment PIN_V11  -to fpga_clk1_50_i
 
 # HDMI
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_clk_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_de_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[10]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[11]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[12]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[13]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[14]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[15]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[16]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[17]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[18]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[19]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[20]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[21]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[22]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_d_o[23]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_hs_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hdmi_tx_vs_o
 set_location_assignment PIN_AG5  -to hdmi_tx_clk_o
 set_location_assignment PIN_AD19 -to hdmi_tx_de_o
 set_location_assignment PIN_AD12 -to hdmi_tx_d_o[0]
@@ -85,4 +56,9 @@ set_location_assignment PIN_AF9  -to hdmi_tx_d_o[22]
 set_location_assignment PIN_AE8  -to hdmi_tx_d_o[23]
 set_location_assignment PIN_T8   -to hdmi_tx_hs_o
 set_location_assignment PIN_V13  -to hdmi_tx_vs_o
+
+# All pins have the same I/O standard
+set_instance_assignment -name IO_STANDARD          "3.3-V LVTTL"  -to *
+set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA           -to *
+set_instance_assignment -name SLEW_RATE            1              -to *
 

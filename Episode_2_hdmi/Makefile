@@ -9,4 +9,3 @@ clean:
 	rm -rf incremental_db/
 	rm -rf $(PROJECT).qpf
 	rm -rf c5_pin_model_dump.txt
-
