@@ -10,7 +10,9 @@ You need to download three files:
 
 Go to the website
 [https://fpgasoftware.intel.com/](https://fpgasoftware.intel.com/) and make
-sure you choose "Select edition: Lite", see below:
+sure you choose "Select edition: Lite", see below. This is the only edition
+that is free to use without a license. The other two editions require paid
+licenses.
 
 ![Edition: Lite](edition_lite.png "Edition: Lite")
 
@@ -36,6 +38,19 @@ Now you're ready to install. Only the Quartus Lite setup program needs to be
 run. It will automatically recognize the other two files and install
 everything.
 
+```
+sudo ./QuartusLiteSetup-20.1.0.711-linux.run
+```
+
+Finally, you have to manually set up the paths to quartus. You can do this by adding
+the following two lines to your `.bashrc` login script.
+
+```
+export QUARTUS_ROOTDIR=/opt/intelFPGA_lite/20.1/quartus
+export PATH=$PATH:$QUARTUS_ROOTDIR/bin:$QUARTUS_ROOTDIR/linux64:$QUARTUS_ROOTDIR/../qsys/bin:$QUARTUS_ROOTDIR/sopc_builder/bin:$QUARTUS_ROOTDIR/sopc_builder/model/bin
+```
+
+
 ## The design
 This first design is trivial, and its purpose is only to get the tools
 installed and working.  The DE10 Nano board has 4 slide switches and 8 LEDs. In
@@ -47,6 +62,13 @@ The Quartus tool is controlled by a script file, and is invoked by the command
 `quartus_sh`. The command line argument `--flow compile` is an instruction to
 build the complete design and geenrate a bit-file that can be programmed onto
 the FPGA.
+
+The Makefile is not really necessary, and you can just as well start the Quartus
+tool manually by the following command:
+
+```
+quartus_sh --flow compile top
+```
 
 ## The compile script
 The file [hello_world.qsf](hello_world.qsf) contains all the build instructions.
@@ -72,6 +94,19 @@ To start the build simply type the command:
 ```
 make
 ```
+
+You will notice a few warnings remaining, like:
+* `Warning (292013): Feature LogicLock is only available with a valid
+  subscription license. You can purchase a software subscription to gain full
+  access to this feature`. I'm not sure what this warning is about, but it seems
+  to be safe to ignore it.
+* `Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O
+  Assignment Warnings report for details`. I guess this warning is stating that
+  not all I/O pins on the FPGA are used. This should be safe to ignore.
+* `Warning (332068): No clocks defined in design`. This is very true, as this
+  exceptionally simple design has no clocks. This warning will go away already
+  in the next episode.
+
 
 Once the build is finished, you can program the FPGA with the generated bitstream.
 
