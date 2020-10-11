@@ -1,14 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity hello_world is
+entity top is
    port (
       sw_i  : in  std_logic_vector(3 downto 0);
       led_o : out std_logic_vector(3 downto 0)
    );
-end entity hello_world;
+end entity top;
 
-architecture synthesis of hello_world is
+architecture synthesis of top is
 
 begin
 

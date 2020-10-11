@@ -1,4 +1,4 @@
-PROJECT = hello_world
+PROJECT = top
 
 all:
 	quartus_sh --flow compile $(PROJECT)
